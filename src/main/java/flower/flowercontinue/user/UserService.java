@@ -6,7 +6,8 @@ import java.util.List;
 
 @Service
 public class UserService {
+    private UserRepository userRepository;
     public List<User> getUser() {
-        return List.of(new User());
+        return userRepository.findAll();
     }
 }
