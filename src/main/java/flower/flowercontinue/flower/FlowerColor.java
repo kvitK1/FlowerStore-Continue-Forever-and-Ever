@@ -1,4 +1,4 @@
-package flower.flowercontinue;
+package flower.flowercontinue.flower;
 
 public enum FlowerColor {
     RED("#FF0000"), BLUE("#0000FF"), WHITE("#FFFFFF");

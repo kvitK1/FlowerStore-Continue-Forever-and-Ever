@@ -1,28 +1,31 @@
-package flower.flowercontinue;
+package flower.flowercontinue.flower;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlowerService {
-    private final FlowerRepository flowerRepository;
-
     @Autowired
+    private FlowerRepository flowerRepository;
+
     public FlowerService(FlowerRepository flowerRepository) {
         this.flowerRepository = flowerRepository;
     }
-
     @GetMapping
     public List<Flower> getFlowers() {
         return flowerRepository.findAll();
     }
 
-//    @GetMapping
-//    public List<Flower> getFlowers() {
-////        Flower tulip = new Flower(1L, 3.4, FlowerColor.BLUE, 24.8, FlowerType.TULIP);
-//        return List.of(new Flower(1L, 3.4, FlowerColor.BLUE, 24.8, FlowerType.TULIP));
-//    }
+    public void addFlowers(Flower flower) {
+        Optional<Flower> flowerByType = flowerRepository
+                .findFlowerByType(flower.getFlowerType());
+        System.out.println(flower);
+        flowerRepository.save(flower);
+    }
+
 }
