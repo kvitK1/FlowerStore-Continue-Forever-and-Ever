@@ -1,7 +1,5 @@
 package flower.flowercontinue.delivery;
 
-import flower.flowercontinue.delivery.Delivery;
-
 public class PostDelivery implements Delivery {
     @Override
     public double transitionCosts() {

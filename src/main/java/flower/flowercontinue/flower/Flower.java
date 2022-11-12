@@ -27,7 +27,13 @@ public class Flower extends Item {
     private double price;
     private FlowerColor color;
     private double sepalLength;
-    public Flower(Long id, double sepalLength, FlowerColor color, double price, FlowerType flowerType) {
+    public Flower(
+            Long id,
+            double sepalLength,
+            FlowerColor color,
+            double price,
+            FlowerType flowerType)
+    {
         this.id = id;
         this.sepalLength = sepalLength;
         this.color = color;
@@ -35,7 +41,12 @@ public class Flower extends Item {
         this.flowerType = flowerType;
     }
 
-    public Flower(double sepalLength, FlowerColor color, double price, FlowerType flowerType) {
+    public Flower(
+            double sepalLength,
+            FlowerColor color,
+            double price,
+            FlowerType flowerType)
+    {
         this.sepalLength = sepalLength;
         this.color = color;
         this.price = price;

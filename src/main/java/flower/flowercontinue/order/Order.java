@@ -5,6 +5,7 @@ import flower.flowercontinue.delivery.Delivery;
 import flower.flowercontinue.item.Item;
 import flower.flowercontinue.payment.Payment;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.LinkedList;
 
@@ -13,7 +14,8 @@ public class Order {
     private Payment payment;
     @Getter
     private Delivery delivery;
-    LinkedList<Item> busket = new LinkedList<Item>();
+    @Getter @Setter
+    private LinkedList<Item> busket = new LinkedList<Item>();
 
     public void setPayment(Payment payment) {
         this.payment = payment;

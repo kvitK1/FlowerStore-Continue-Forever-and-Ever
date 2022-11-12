@@ -1,7 +1,5 @@
 package flower.flowercontinue.payment;
 
-import lombok.Setter;
-
 public class CreditCardPayment implements Payment {
     @Override
     public double fee() {

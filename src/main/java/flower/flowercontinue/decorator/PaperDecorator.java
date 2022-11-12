@@ -1,6 +1,5 @@
 package flower.flowercontinue.decorator;
 
-import flower.flowercontinue.flower.Flower;
 import flower.flowercontinue.item.Item;
 
 public class PaperDecorator implements AbstractDecorator{

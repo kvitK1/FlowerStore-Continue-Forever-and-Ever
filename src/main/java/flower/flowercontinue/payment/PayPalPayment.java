@@ -1,8 +1,6 @@
 package flower.flowercontinue.payment;
 
-import lombok.Setter;
-
-public class PayPalPayment implements Payment{
+public class PayPalPayment implements Payment {
 
     @Override
     public double fee() {
@@ -17,9 +15,9 @@ public class PayPalPayment implements Payment{
     @Override
     public boolean pay(double price) {
         double balance = price*2;
-        price *= fee();
+        double fee = fee();
+        price = price*fee;
         if (price <= balance) {
-            balance = balance - price;
             return true;
         }
         return false;

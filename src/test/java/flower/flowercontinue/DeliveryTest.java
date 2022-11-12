@@ -1,7 +1,6 @@
 package flower.flowercontinue;
 
 import flower.flowercontinue.delivery.DHLDelivery;
-import flower.flowercontinue.delivery.PostDelivery;
 import flower.flowercontinue.flower.Flower;
 import flower.flowercontinue.flower.FlowerColor;
 import flower.flowercontinue.flower.FlowerType;
@@ -12,33 +11,38 @@ import org.junit.jupiter.api.Test;
 
 public class DeliveryTest {
     private Order order;
-    private DHLDelivery delivery1;
-    private PostDelivery delivery2;
-    private Flower flower1;
-    private Flower flower2;
+    private DHLDelivery delivery;
+    private Flower flowerOne;
+    private Flower flowerTwo;
 
 
     @BeforeEach
     public void init() {
-        flower1 = new Flower(2.4, FlowerColor.WHITE, 23.4, FlowerType.TULIP);
-        flower2 = new Flower(8, FlowerColor.BLUE, 40.6, FlowerType.CHAMOMILE);
-        delivery1 = new DHLDelivery();
-        delivery2 = new PostDelivery();
+        double sepalLength = 2.4;
+        double price = 40.0;
+        flowerOne = new Flower(sepalLength, FlowerColor.WHITE,
+                price, FlowerType.TULIP);
+        flowerTwo = new Flower(sepalLength, FlowerColor.BLUE,
+                price, FlowerType.CHAMOMILE);
+        delivery = new DHLDelivery();
         order = new Order();
-        order.addFlower(flower1);
-        order.addFlower(flower2);
+        order.addFlower(flowerOne);
+        order.addFlower(flowerTwo);
     }
 
     @Test
     public void testOrder() {
-        Assertions.assertEquals(flower1.getPrice()+flower2.getPrice(), order.totalPrice());
+        Assertions.assertEquals(flowerOne.getPrice()+ flowerTwo.getPrice(),
+                order.totalPrice());
     }
 
     @Test
     public void testDelivery() {
-        order.setDelivery(delivery1);
-        Assertions.assertEquals(delivery1, order.getDelivery());
-        double deliverFlower1 = delivery1.deliver(flower1.getPrice());
-        Assertions.assertEquals((1+delivery1.transitionCosts())*flower1.getPrice(), deliverFlower1);
+        order.setDelivery(delivery);
+        Assertions.assertEquals(delivery, order.getDelivery());
+        double deliverFlowerOne = delivery.deliver(flowerOne.getPrice());
+        Assertions.assertEquals(
+                (1+delivery.transitionCosts())*flowerOne.getPrice(),
+                deliverFlowerOne);
     }
 }
