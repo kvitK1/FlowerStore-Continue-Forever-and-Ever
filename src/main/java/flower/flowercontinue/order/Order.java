@@ -4,6 +4,7 @@ package flower.flowercontinue.order;
 import flower.flowercontinue.delivery.Delivery;
 import flower.flowercontinue.item.Item;
 import flower.flowercontinue.payment.Payment;
+import flower.flowercontinue.user.AppUser;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,4 +47,8 @@ public class Order {
     public void removeFlower(Item item) {
         this.busket.remove(item);
     }
+    public void addUser(AppUser user) {;}
+    public void removeUser(int id) {;}
+    public void notifyUsers() {;}
+    public String order() {return "Fjnfr";}
 }

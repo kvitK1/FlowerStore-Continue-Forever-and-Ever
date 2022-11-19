@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/flowers")
 public class FlowerController {
-    private final FlowerService flowerService;
+    private FlowerService flowerService;
 
     @Autowired
     public FlowerController(FlowerService flowerService) {
